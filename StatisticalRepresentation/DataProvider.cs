@@ -36,7 +36,7 @@ namespace StatisticalRepresentation
                 var monthResult = new MonthResult();
                 monthResult.MonthIndex = monthData.Key;
 
-                var stationData = monthData.GroupBy(x => x.StationName);
+                var stationData = monthData.GroupBy(x => x.StationName).OrderBy(x => x.Key);
                 foreach (var sd in stationData)
                 {
                     var stationAverageData = sd.Sum(x => x.Data ?? 0) / sd.Count();
