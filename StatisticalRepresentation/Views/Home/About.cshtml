@@ -1,0 +1,9 @@
+﻿@model List<YearResult>
+@{
+    ViewData["Title"] = "PM 10";
+}
+
+@foreach (var resultForYear in Model)
+{
+    <partial name="_ResultForYearPartial" model="@resultForYear" />
+}
