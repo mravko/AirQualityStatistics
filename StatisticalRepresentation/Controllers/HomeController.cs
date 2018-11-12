@@ -17,9 +17,21 @@ namespace StatisticalRepresentation.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult MonthAverage()
         {
             var data = dataProvider.GetData_AverageByMonth();
+            return View(data);
+        }
+
+        public IActionResult MonthMax()
+        {
+            var data = dataProvider.GetData_MaxByMonth();
+            return View(data);
+        }
+
+        public IActionResult MonthMedian()
+        {
+            var data = dataProvider.GetData_MedianByMonth();
             return View(data);
         }
 

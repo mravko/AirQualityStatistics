@@ -8,5 +8,7 @@ namespace StatisticalRepresentation
         YearResult GetData_AverageByMonthForYear(int year);
 
         List<YearResult> GetData_AverageByMonth();
+        List<YearResult> GetData_MaxByMonth();
+        List<YearResult> GetData_MedianByMonth();
     }
 }

@@ -1,0 +1,11 @@
+﻿@model List<YearResult>
+@{
+    ViewData["Title"] = "Максимум по месеци - PM 10";
+}
+
+<h1>Максимум по месеци</h1>
+
+@foreach (var resultForYear in Model)
+{
+    <partial name="_ResultForYearPartial" model="@resultForYear" />
+}

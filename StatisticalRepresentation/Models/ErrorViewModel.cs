@@ -1,5 +1,3 @@
-using System;
-
 namespace StatisticalRepresentation.Models
 {
     public class ErrorViewModel

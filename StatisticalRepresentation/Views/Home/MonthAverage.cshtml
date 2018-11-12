@@ -1,0 +1,11 @@
+﻿@model List<YearResult>
+@{
+    ViewData["Title"] = "Просек по месеци - PM 10";
+}
+
+<h1>Просек по месеци</h1>
+
+@foreach (var resultForYear in Model)
+{
+    <partial name="_ResultForYearPartial" model="@resultForYear" />
+}
