@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TinyCsvParser;
 
 namespace StatisticalRepresentation
@@ -7,15 +8,28 @@ namespace StatisticalRepresentation
     {
         private List<YearMeasurements> Measurements = new List<YearMeasurements>();
 
-        public void ImportMeasurements()
+        public DataProvider()
         {
             var mapping = new MeasurementMapping();
             CsvParserOptions csvParserOptions = new CsvParserOptions(true, ';');
             CsvParser<Measurement> parser = new CsvParser<Measurement>(csvParserOptions, mapping);
 
-            Measurements.Add(parser.ImportMeasurementsForYear(2015));
-            Measurements.Add(parser.ImportMeasurementsForYear(2016));
-            Measurements.Add(parser.ImportMeasurementsForYear(2017));
+            var years = new List<int>
+            {
+                2015, 2016, 2017
+            };
+            years.ForEach(year =>
+            {
+                try
+                {
+                    Measurements.Add(parser.ImportMeasurementsForYear(year));
+                }
+                catch (Exception e)
+                {
+                    //todo: implement logging
+                }
+            });
+            
         }
 
         public List<YearResult> GetData(GroupingType groupingType, CalculationType calculationType)
