@@ -1,56 +1,64 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - StatisticalRepresentation</title>
 
     <environment include="Development">
-        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css"/>
+        <link rel="stylesheet" href="~/css/site.css"/>
+        <link rel="stylesheet" href="~/css/navigation.css"/>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
               asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
-              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
-        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"/>
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true"/>
     </environment>
-
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Навигација</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="MonthAverage">Месечен просек</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="MonthMax">Месечен максимум</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="MonthMedian">Месечен медиан</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="MonthStandardDeviation">Месечна девиација</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="DayAverage">Дневен просек</a></li>
 
+    <div class="nav-side-menu">
+        <div class="brand">Навигација</div>
+        <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+    
+        <div class="menu-list">
+            <ul id="menu-content" class="menu-content collapse out">
+                <li data-toggle="collapse" data-target="#products" class="collapsed active">
+                    <a href="#"><i class="fa fa-line-chart fa-lg"></i> Месечни статистики <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="MonthAverage">Месечен просек</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="MonthMax">Месечен максимум</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="MonthMedian">Месечен медиан</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="MonthStandardDeviation">Месечна девиација</a>
+                    </li>
+                    <li>
+                        <a asp-area="" asp-controller="Home" asp-action="DayAverage">Дневен просек</a>
+                    </li>
                 </ul>
-            </div>
+            </ul>
         </div>
-    </nav>
-
+    </div>
+    
     <div class="container body-content">
         @RenderBody()
-        <hr />
+        <hr/>
         <footer>
             <p>&copy; 2018 - Преглед</p>
         </footer>
     </div>
-
+    
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
         <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -71,7 +79,7 @@
         </script>
         <script src="~/js/site.min.js" asp-append-version="true"></script>
     </environment>
-
+    
     @RenderSection("Scripts", required: false)
 </body>
 </html>
