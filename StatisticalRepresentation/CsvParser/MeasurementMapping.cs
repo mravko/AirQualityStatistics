@@ -7,7 +7,7 @@ namespace StatisticalRepresentation
         public MeasurementMapping()
         {
             MapProperty(0, x => x.StationName);
-            MapProperty(1, x => x.DateTime);
+            MapProperty(1, x => x.DateTime, new TinyCsvParser.TypeConverter.DateTimeConverter("dd/MM/yyyy HH:mm"));
             MapProperty(2, x => x.Data);
             MapProperty(3, x => x.Type);
             MapProperty(4, x => x.Temperature);

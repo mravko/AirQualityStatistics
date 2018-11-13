@@ -6,6 +6,7 @@ namespace StatisticalRepresentation
     {
         public string Type { get; set; }
         public int Year { get; set; }
-        public List<MonthResult> MonthResult = new List<MonthResult>();
+
+        public List<ResultGroup> MonthResult = new List<ResultGroup>();
     }
 }

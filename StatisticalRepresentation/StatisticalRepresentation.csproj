@@ -13,22 +13,31 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Views\Home\DayAverage.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
+    <Content Update="Views\Home\MonthStandardDeviation.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Views\Home\MonthMedian.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
     <Content Update="Views\Home\MonthMax.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
+    <Content Update="Views\Shared\_ResultForDayPartial.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="measurements_2015.csv">
+    <None Update="ExportedMeasurements\measurements_2015.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="measurements_2016.csv">
+    <None Update="ExportedMeasurements\measurements_2016.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="measurements_2017.csv">
+    <None Update="ExportedMeasurements\measurements_2017.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

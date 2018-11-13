@@ -2,15 +2,15 @@
 
 namespace StatisticalRepresentation
 {
-    public class MonthResult
+    public class ResultGroup
     {
-        public int MonthIndex { get; set; }
+        public int ResultIndex { get; set; }
 
         public string MonthName
         {
             get
             {
-                switch (MonthIndex)
+                switch (ResultIndex)
                 {
                     case 1:
                         return "January";

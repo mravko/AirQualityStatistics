@@ -1,0 +1,20 @@
+﻿@model YearResult
+@{
+    ViewData["Title"] = "PM 10";
+}
+
+<h2>@Model.Year - @Model.Type</h2>
+<div id='@Model.Year-chart'>
+</div>
+
+<script type="text/javascript">
+    var data = [];
+    @foreach (var month in Model.MonthResult)
+    {
+        @:data.push({ name: '@month.ResultIndex', x: [@Html.Raw(String.Join(",", month.Result.Select(x=> "'" + x.Key + "'")))],y: [@Html.Raw(String.Join(",", month.Result.Select(x=> "'" + x.Value + "'")))],type: 'bar'});
+    }
+
+    var layout = { barmode: 'group' };
+
+    Plotly.newPlot('@Model.Year-chart', data, layout);
+</script>

@@ -9,13 +9,13 @@ namespace StatisticalRepresentation
         public static YearMeasurements ImportMeasurementsForYear(this CsvParser<Measurement> parser, int year)
         {
             var result = parser
-               .ReadFromFile(string.Format(@"measurements_{0}.csv", year), Encoding.UTF8)
+               .ReadFromFile(string.Format(@"ExportedMeasurements\measurements_{0}.csv", year), Encoding.UTF8)
                .ToList();
 
             return new YearMeasurements
             {
                 Year = year,
-                Measurements = result.Where(x => x.IsValid && x.Result != null)
+                Measurements = result.Where(x => x.IsValid && x.Result != null && x.Result.Data != null)
                 .Select(x => x.Result)
 
                 .Where(x => x.StationName == "Centar"
