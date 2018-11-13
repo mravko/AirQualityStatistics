@@ -26,7 +26,6 @@ namespace StatisticalRepresentation
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
             var singleton = new DataProvider();
-            singleton.ImportMeasurements();
 
             services.AddSingleton(typeof(IDataProvider), singleton);
 
@@ -54,7 +53,6 @@ namespace StatisticalRepresentation
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-            
         }
     }
 }
