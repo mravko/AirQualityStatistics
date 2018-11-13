@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿using System;
+using System.IO;
+using System.Linq;
 using System.Text;
 using TinyCsvParser;
 
@@ -9,7 +11,7 @@ namespace StatisticalRepresentation
         public static YearMeasurements ImportMeasurementsForYear(this CsvParser<Measurement> parser, int year)
         {
             var result = parser
-               .ReadFromFile(string.Format(@"ExportedMeasurements\measurements_{0}.csv", year), Encoding.UTF8)
+               .ReadFromFile(string.Format(@"ExportedMeasurements{1}measurements_{0}.csv", year, Path.DirectorySeparatorChar), Encoding.UTF8)
                .ToList();
 
             return new YearMeasurements
